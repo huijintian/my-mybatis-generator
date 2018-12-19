@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="generator" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <commentGenerator type="org.mybatis.generator.MyCommentGenerator">
+            <property name="addRemarkComments" value="true"/>
+            <property name="dateFormat" value="YYYY-MM-dd HH:mm:ss"/>
+            <property name="author" value="mengtian"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.0.100:3306/test?serverTimezone=UTC"
+                        userId="root"
+                        password="1234">
+        </jdbcConnection>
+
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="test.domain"
+                            targetProject="/Users/mengtian/Documents/code/stu/my-github/my-mybatis-generator/src/main">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="test.mapper"
+                         targetProject="/Users/mengtian/Documents/code/stu/my-github/my-mybatis-generator/src/main">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="test.dao"
+                             targetProject="/Users/mengtian/Documents/code/stu/my-github/my-mybatis-generator/src/main">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="test" tableName="s_user" domainObjectName="SUser"/>
+    </context>
+</generatorConfiguration>
